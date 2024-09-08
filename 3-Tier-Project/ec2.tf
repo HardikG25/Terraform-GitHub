@@ -13,13 +13,13 @@ resource "aws_instance" "web_disp" {
   )
 
   provisioner "file" {
-    source      = "Source of the pem file"
-    destination = "Path to be given to source file"
+    source      = "./DemoKey.pem"
+    destination = "/home/ec2-user/DemoKey.pem"
 
     connection {
       type        = "ssh"
       user        = "ec2-user"
-      private_key = aws_key_pair.demoKey
+      private_key = file("./DemoKey.pem")
       host        = self.public_ip
     }
   }

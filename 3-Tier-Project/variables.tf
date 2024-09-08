@@ -49,8 +49,3 @@ variable "cidr_ingress" {
   description = "cidr block for inbound traffic"
   type        = list(string)
 }
-
-variable "keyPairPath" {
-  description = "Path to where key will be created"
-  default     = "*"
-}
